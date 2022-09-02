@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final FocusNode _emailTextFocusNode = FocusNode();
   final FocusNode _passwordTextFocusNode = FocusNode();
+  bool _isvisible = false;
   @override
   void initState() {
     _emailTextFocusNode.addListener(() {
@@ -38,7 +39,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     double height = Utils(context).getScreenSize.height;
-    double width = Utils(context).getScreenSize.width;
     return Scaffold(
       body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -141,10 +141,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelText: 'Email',
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15.0,
                           ),
                           TextFormField(
+                            obscureText: _isvisible,
                             focusNode: _passwordTextFocusNode,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -167,6 +168,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Icons.password_outlined,
                               ),
                               labelText: 'Password',
+                              suffixIcon: InkWell(
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                onTap: () {
+                                  setState(() {
+                                    _isvisible = !_isvisible;
+                                  });
+                                },
+                                child: Icon(
+                                  _isvisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                              ),
                             ),
                           ),
                         ],

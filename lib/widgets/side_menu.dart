@@ -22,7 +22,6 @@ class _SideMenuState extends State<SideMenu> {
     final theme = Utils(context).getTheme;
     final themeState = Provider.of<DarkThemeProvider>(context);
 
-    final color = Utils(context).color;
     return Drawer(
       child: ListView(
         children: [
@@ -53,16 +52,26 @@ class _SideMenuState extends State<SideMenu> {
             icon: IconlyLight.bag_2,
           ),
           SwitchListTile(
-              title: const Text('Theme'),
-              secondary: Icon(themeState.getDarkTheme
-                  ? Icons.dark_mode_outlined
-                  : Icons.light_mode_outlined),
-              value: theme,
-              onChanged: (value) {
-                setState(() {
-                  themeState.setDarkTheme = value;
-                });
-              })
+            title: const Text('Theme'),
+            secondary: Icon(themeState.getDarkTheme
+                ? Icons.dark_mode_outlined
+                : Icons.light_mode_outlined),
+            value: theme,
+            onChanged: (value) {
+              setState(() {
+                themeState.setDarkTheme = value;
+              });
+            },
+          ),
+          DrawerListTile(
+            title: "Logout",
+            press: () {
+              Navigator.of(context).canPop()
+                  ? Navigator.of(context).pop()
+                  : null;
+            },
+            icon: IconlyLight.logout,
+          ),
         ],
       ),
     );

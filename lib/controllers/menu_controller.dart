@@ -8,7 +8,8 @@ class MenuController extends ChangeNotifier {
   // Getters
   GlobalKey<ScaffoldState> get getScaffoldKey => _scaffoldKey;
   GlobalKey<ScaffoldState> get getgridscaffoldKey => _gridScaffoldKey;
-  GlobalKey<ScaffoldState> get getAddProductscaffoldKey => _addProductScaffoldKey;
+  GlobalKey<ScaffoldState> get getAddProductscaffoldKey =>
+      _addProductScaffoldKey;
 
   // Callbacks
   void controlDashboarkMenu() {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../consts/constants.dart';
-import '../controllers/MenuController.dart';
+import '../controllers/menu_controller.dart';
 import '../widgets/header.dart';
 
 class DashboardScreen extends StatelessWidget {

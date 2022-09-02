@@ -4,7 +4,7 @@ import 'package:flutter_desktop_app_template/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'consts/theme_data.dart';
-import 'controllers/MenuController.dart';
+import 'controllers/menu_controller.dart';
 import 'providers/dark_theme_provider.dart';
 
 void main() async {
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: 'Desktop App Template',
             theme: Styles.themeData(themeProvider.getDarkTheme, context),
-            home: LoginScreen(),
+            home: const LoginScreen(),
           );
         },
       ),

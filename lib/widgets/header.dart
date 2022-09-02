@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../consts/constants.dart';
 import '../responsive.dart';
-import '../services/utils.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -13,9 +12,6 @@ class Header extends StatelessWidget {
   final Function fct;
   @override
   Widget build(BuildContext context) {
-    final theme = Utils(context).getTheme;
-    final color = Utils(context).color;
-
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
